@@ -1,5 +1,5 @@
 import pickle
-
+"""ピクルのサンプル"""
 # x = [10, 20, 30]
 
 # with open('./data.pickle', 'wb') as f:
