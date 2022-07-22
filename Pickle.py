@@ -11,6 +11,7 @@ import pickle
 
 from DataClass import User
 
+# Userクラスで試してみる
 user = User('Suzuki', 21)
 with open('./data.pickle', 'wb') as f:
     pickle.dump(user, f)
