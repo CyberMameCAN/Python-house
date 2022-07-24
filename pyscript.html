@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pyscriptのテスト</title>
+    <link rel="https://pyscript.net/alpha/pyscript.css" />
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - pandas
+        - matplotlib
+        - ./Generator.py
+    </py-env>
+</head>
+<body>
+    <div id="dynamic-output" style="border: 1px solid #999;"></div>
+    <div id="plotout"></div>
+    <div id="message"></div>
+
+    <div id="gruff-output" style="background-color: #ece;"></div>
+
+    <py-repl></py-repl>
+
+    <py-script>
+        import datetime
+        print(datetime.datetime.now())
+
+        x =  'Now you can!'
+        pyscript.write('dynamic-output', x)
+
+        import pandas as pd
+        import matplotlib.pyplot as plt
+
+        df = pd.DataFrame({
+            '名前': ['にしおぱ', 'Kuwada', 'きたへふ'],
+            'old': [50, 46, 61],
+        })
+        m = df['old'].mean()
+        print(f'平均: {m}')
+
+        fig, ax = plt.subplots()
+        ax.bar(df['名前'], df['old'])
+        pyscript.write('plotout', fig)
+
+        from Generator import my_generator
+        mg = my_generator()
+        for x in mg:
+            print(x)
+        
+        def func1(x):
+            print(x + 10)
+    </py-script>
+</body>
+</html>
