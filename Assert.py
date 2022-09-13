@@ -10,10 +10,12 @@
            assert (条件, '文字列')
            これはタプルを評価しているので「常に正」
            AssertionErrorは起こらない
+
+    デバッグの為にある機能だと思うこと
 """
 def apply_discount(product, discount):
     price = int(product['price'] * (1.0 - discount))
-    assert 0 <= price <= product['price']
+    assert 0 <= price <= product['price'], 'ディスカウントエラー'
     
     return price
 
