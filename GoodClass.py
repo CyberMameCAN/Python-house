@@ -14,6 +14,10 @@ Returns:
 from datetime import date, timedelta
 from dataclasses import dataclass
 
+# @ ではじまるキーワードはデコレータと呼称
+#   関数やクラスに特殊な振る舞いを注入することのできる機能
+# @property 変数のように参照が出来る。関数だけど使い方は object.name と使う。()は付けない。
+# @xxx.setter プロパティに代入したい時
 @dataclass
 class User:
     id: int = 0
