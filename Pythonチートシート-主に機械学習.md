@@ -62,6 +62,11 @@ forループの中で、**複数のリストの要素を同時に**取得
 	for score, name in sorted(zip(scores, names), reverse=True):
 		print('{}: {}'.format(score, name)
 
+#### 他メソッド
+
+	'-'.join(配列)  # 配列を'-'で繋ぐ
+	re.split('（|）', text)  # textを「（」や「）」で分割
+	re.sub(r"\D", "", text)  # 数値(文字列返却)のみにする
 ### 高階関数
 
 引数か戻り値に関数が指定されている関数  

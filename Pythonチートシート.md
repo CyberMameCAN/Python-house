@@ -318,14 +318,16 @@ index(i)とデータ(v)を同時に取得。vはSeries型
 
 	for tpl in df.iterrows():
 
-1行ずつをタプルで取得
+1行ずつをタプルで取得  
+スライスやカラム名でデータにアクセスする。
 
 	for tpl in df.itertuples():
 		print(tpl[0])
 		print(tpl.col_name)
 
 groupbyでグループ化した時のループ  
-name: グループ名、group: グループの中身(DataFrame)
+グループ化したグループ名とそのDataFrameが返る
+name: グループ名、group: グループの中身
 
 	for name, group in class_groupby:
 
