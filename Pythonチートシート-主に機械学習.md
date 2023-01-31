@@ -9,6 +9,17 @@
 - type(調べたいオブジェクト)
 - **.dtypes** : それぞれのカラムの型を調べる
 
+### 文字列
+
+パス用の文字列結合、こちらがよろしい。
+
+	os.path.join( , , )
+
+URLの結合
+
+	from urllib.parse import urljoin
+	urljoin('https://test', str(1))
+
 ### 配列
 
 	[] : 配列
@@ -34,7 +45,7 @@
 	d.get('key1', 'NO KEY') # 「NoneType」の代わりに独自に指定も出来る
 
 
-### リスト内表記
+### リスト内包表記
 
 	squeres = [x ** 2 for x in range(10)]
 
