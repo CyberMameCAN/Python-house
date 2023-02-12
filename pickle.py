@@ -9,7 +9,7 @@ import pickle
 #     x = pickle.load(f)
 # print(x)
 
-from DataClass import User
+from dataclass import User
 
 # Userクラスで試してみる
 user = User('Suzuki', 21)
