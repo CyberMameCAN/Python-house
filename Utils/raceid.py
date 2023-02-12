@@ -12,7 +12,7 @@ class RaceId:
     race_no: str = ''
 
     @property
-    def race_id(self):
+    def race_id(self) -> str:
         """レースID[年・月・日・場所・回次・日次・レース番号]を作る
 
         Returns:

@@ -32,9 +32,11 @@ class ShapeFactory:
             return Triangle()
     """
       @classmethod
-        clsが慣例
+        clsが慣例(not self)
         class method は self ではアクセスできない
         インスタンス化せずに呼び出し可能
+      @staticmethod
+        とりあえず「ただの関数」と荒っぽく理解する
     """
 
 def main():
