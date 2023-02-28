@@ -62,7 +62,7 @@ URLの結合
 ### ループ
 
 	for k in dictional:  # 辞書型の時はkにはキーが入る
-	for k, v in dict.items(): # dictionary型の時使う？
+	for k, v in dict.items(): # dictionary型の時使う
 	for x, i in enumerate(x_list): # インデックス付きループ x: value, i: 何番目か
 	for x, y in zip(x_list, y_list): # 同時に取り出せる
 
@@ -320,7 +320,7 @@ pd.merge(df1, df_rejs, left_on='騎手コード', right_on='コード', how='lef
 #### DataFrame
 
 - for i, v in df.iterrows(): # indexとデータ(v)を同時に取得。vはSeries型
-- for tpl in df.itertuples(): # １行ずつをタプルで取得
+- for tpl in df.itertuples(): # １行ずつをタプルで取得(高速)
 - for i in df[''].unique(): # ユニークな値だけを繰り返す
 - for name, group in class_groupby:  # name: グループ名、group: グループの中身
 
