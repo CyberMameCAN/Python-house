@@ -95,6 +95,124 @@ forループの中で、**複数のリストの要素を同時に**取得
 
 	^ 先頭, $ 末尾, * 任意
 
+## 標準ライブラリ
+
+### OSとやりとり
+
+	import os
+	os.getcwd()
+	os.chdir('/tmp')
+	os.system('mkdir today') # mkdirコマンドの実行
+  
+### ファイルやディレクトリの管理
+
+	import shutil
+	shutil.copyfile('org', 'to')
+	shutil.move('org', 'to')
+  
+### ファイルの検索
+
+	import glob
+	glob.glob("*.py")
+  
+### コマンドライン引数の取得
+
+	import sys
+	python demo.py one two three
+	print(sys.argv)  # [0] ファイル名, [1] 引数1, ...
+  
+### 正規表現
+
+	import re
+	re.findall()
+  
+### 数学
+
+	import math
+	math.sqrt
+	math.log
+  
+### 統計(更に高度な計算はscipyを使う)
+
+	import statistics
+	statistics.mean
+	statistics.variance  # 分散
+  
+### インターネットへのアクセス
+
+	from urllib.request import urlopen
+
+	with urlopen("https://to48.org") as res:
+		print(res.read().decode('utf-8'))
+
+### 日付と時間
+
+	from datetime import date
+		now = date.today()
+		now.strftime("%m-%d-%y")
+		
+		birthday = date(2000, 1, 1)
+  
+### データの圧縮
+
+	import zlib
+
+	sentence = 'あいうえお' * 100
+	len(sentence)
+
+	t = zlib.compress(sentence.encode('utf-8'))
+	len(t)
+
+他にgzip, bz2, lzma, zipfile, tarfileもある
+
+### パフォーマンス計測
+
+	from timeit import Timer
+
+	Timer('t=a; a=b; b=t', 'a=1; b=2').timeit()
+
+### どの処理がボトルネックになっているかなどを調べる
+
+	python3 -m cProfile -s cumulative xxx.py
+
+- cProfileが便利なオプション
+- cumulative 累積実行時間
+
+### テスト
+
+	import doctest
+
+テストによる品質管理(テスト用のコードを分離して書くことが出来る)
+
+	import unittest
+
+### マルチスレッド
+
+	threading
+
+### ログ
+
+	logging
+
+デメリットのみあげると、ログは標準出力エラーへ出力。標準出力と分離。  
+適切なログを残すのが難しい
+
+### 10進数の浮動小数点計算
+
+
+	from decimal import Decimal
+
+	0.70 * 1.05
+	round(0.70 * 1.05)
+	round(Decimal('0.70') * Decimal('1.05'), 2)  # 文字列として渡すのが肝?
+
+	.python_history インタープリターで実行したpythonコードの履歴
+
+- 手計算と一致させることが出来る
+- 2進数の浮動小数点による計算誤差がなくなる
+- 丸め規則を厳密に守ることが出来る
+
+
 ## Pandas(DataFrame, Series)
 
 ### 初期化
@@ -139,10 +257,10 @@ forループの中で、**複数のリストの要素を同時に**取得
 - df[df['C']>0]
 - df['XX'].where(条件, v) # 'XX'のカラムを、条件に合う**以外**の値がvに変更される
 - df['XX'].mask()       # whereの逆
+- df.where(条件, 正の時の値, 負の時の値) 条件によって値を設定する
 - df.loc[0:10, ['col1', col2']] # 行と列の範囲を指定して取得
 - df.query() # 複数条件の指定で、特定カラムだけ出力
 	- df.query('カラム名==1')
-- df.where(条件, 正の時の値, 負の時の値) 条件によって値を設定する
 
 ### データの整形
 - .set_index() # indexの設定
