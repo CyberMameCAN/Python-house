@@ -588,6 +588,28 @@ total_pre = np.vstack([total_pre, [race_index, a, b, c, d, e, f]])
 
 ## デザインパターン
 
+### yieldを使ったテクニック
+
+	def mytest():
+		for k in range(0, 3):
+			print(f'k: {k}')
+			yield k
+        
+	k2 = mytest()
+
+	for L in k2:
+		print(f'k2(L): {L}')
+
+こんな感じで実行される
+
+	k: 0
+	k2(L): 0
+	k: 1
+	k2(L): 1
+	k: 2
+	k2(L): 2
+	k: 3
+
 ### 配列の中で関数を使ったり、引数2つだったり
 	def male_female_child(passenger):
 	    age, sex = passenger
