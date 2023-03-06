@@ -66,6 +66,13 @@ URLの結合
 	for x, i in enumerate(x_list): # インデックス付きループ x: value, i: 何番目か
 	for x, y in zip(x_list, y_list): # 同時に取り出せる
 
+#### enumerateの例
+
+	data = [1, 2, -3, -4]
+	for idx, num in enumerate(data):
+		if num < 0:
+			data[idx] = 0
+
 #### zip()
 
 forループの中で、**複数のリストの要素を同時に**取得
@@ -78,6 +85,59 @@ forループの中で、**複数のリストの要素を同時に**取得
 	'-'.join(配列)  # 配列を'-'で繋ぐ
 	re.split('（|）', text)  # textを「（」や「）」で分割
 	re.sub(r"\D", "", text)  # 数値(文字列返却)のみにする
+
+	data = [3, 7, 2, 10, 5]
+	sorted(data, reverse=True)
+
+	# list内の値の重複をなくす
+	my_list = [1,1,2,2,2,3,3,4,5,5,5]
+	set(my_list), type(my_list)
+	# ({1, 2, 3, 4, 5}, list)
+
+#### 辞書のソートも出来る
+
+	data = [{'name': 'Max', 'age': 6},
+			{'name': 'Arata', 'age': 20},
+			{'name': 'Vega', 'age': 11},
+			]
+	sorted(data, key=lambda x: x['age'])
+
+#### 辞書型の結合
+
+	d1 = {'name': 'Vega', 'age': 25}
+	d2 = {'name': 'Vega', 'city': 'kagoshima'}
+	{**d1, **d2}
+
+	# {'name': 'Vega', 'age': 25, 'city': 'kagoshima'}
+
+#### キーが存在していないときだけ、要素を追加する
+
+キーが存在していたら何もしない
+
+	my_dict = {'item,': 'mac', 'price': 200000}
+	my_dict.setdefault('count', 1)
+	my_dict
+
+#### listの各要素の数をカウントする
+
+	from collections import Counter
+
+	my_list = [1, 1, 1, 1, 2, 3, 3, 5, 5, 5, 5, 5, 10, 10, 10, 10, 10, 10]
+	counter = Counter(my_list)
+	counter
+	# Counter({1: 4, 2: 1, 3: 2, 5: 5, 10: 6})
+
+	# 最も出現回数が多い要素(上位２つ)
+	counter.most_common(2)
+	# [(10, 6), (5, 5)]
+
+#### listに含まれているか
+
+	colors = ['red', 'green', 'yellow']
+	c = 'red'
+	if c in colors:
+		print(f'{c} is main color')
+
 ### 高階関数
 
 引数か戻り値に関数が指定されている関数  
@@ -103,7 +163,7 @@ forループの中で、**複数のリストの要素を同時に**取得
 	os.getcwd()
 	os.chdir('/tmp')
 	os.system('mkdir today') # mkdirコマンドの実行
-  
+
 ### ファイルやディレクトリの管理
 
 	import shutil
@@ -120,6 +180,9 @@ forループの中で、**複数のリストの要素を同時に**取得
 	import sys
 	python demo.py one two three
 	print(sys.argv)  # [0] ファイル名, [1] 引数1, ...
+  
+	# 変数のサイズも取得できる
+	print(sys.getsizeof(data), 'bytes')
   
 ### 正規表現
 
