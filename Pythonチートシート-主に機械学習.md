@@ -7,7 +7,7 @@
 ### 型を調べる
 
 - type(調べたいオブジェクト)
-- **.dtypes** : それぞれのカラムの型を調べる
+- **.dtypes** : (DataFrame)それぞれのカラムの型を調べる
 
 ### 文字列
 
@@ -20,7 +20,7 @@ URLの結合
 	from urllib.parse import urljoin
 	urljoin('https://test', str(1))
 
-### 配列
+### 配列, リスト
 
 	[] : 配列
 	l = list()
@@ -34,7 +34,7 @@ URLの結合
 	squares = []
 	squares.append( x )
 
-### 辞書, リスト
+### 辞書
 
 - **{}** : 辞書型
 - d = dict()
@@ -211,10 +211,11 @@ forループの中で、**複数のリストの要素を同時に**取得
 ### 日付と時間
 
 	from datetime import date
-		now = date.today()
-		now.strftime("%m-%d-%y")
-		
-		birthday = date(2000, 1, 1)
+
+	now = date.today()
+	now.strftime("%m-%d-%y")
+	
+	birthday = date(2000, 1, 1)
   
 ### データの圧縮
 
@@ -673,7 +674,7 @@ total_pre = np.vstack([total_pre, [race_index, a, b, c, d, e, f]])
 	k2(L): 2
 	k: 3
 
-### 配列の中で関数を使ったり、引数2つだったり
+### 配列の中に関数を使ったり、引数2つだったり
 	def male_female_child(passenger):
 	    age, sex = passenger
 	    if age < 16:
