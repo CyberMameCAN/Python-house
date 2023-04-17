@@ -242,6 +242,19 @@ forループの中で、**複数のリストの要素を同時に**取得
 - cProfileが便利なオプション
 - cumulative 累積実行時間
 
+### try ~ catch
+
+	try:
+		例外が発生するかもしれない処理
+	except:
+		例外発生後の対応方法
+	else:
+		try正常終了後の処理
+	finally:
+		何が起きても実行される
+	
+
+
 ### テスト
 
 	import doctest
@@ -548,7 +561,7 @@ total_pre = np.vstack([total_pre, [race_index, a, b, c, d, e, f]])
 	    
 	titanic
 
-### 一遍にやりたい時は**fit_transform()**もある
+### いっ辺にやりたい時は**fit_transform()**もある
 
 ### pandasのカテゴリー変数
 
