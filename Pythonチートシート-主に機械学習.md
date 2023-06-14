@@ -13,6 +13,7 @@
 
 パス用の文字列結合、こちらがよろしい。
 
+	import os
 	os.path.join( , , )
 
 URLの結合
@@ -33,6 +34,17 @@ URLの結合
 
 	squares = []
 	squares.append( x )
+
+#### 出現回数
+
+'a' の出現回数
+
+	squares.count('a')
+
+キーに要素、値に出現回数の辞書オブジェクトを返す
+
+	import collections
+	collections.Counter(squares)
 
 ### 辞書
 
@@ -333,8 +345,8 @@ forループの中で、**複数のリストの要素を同時に**取得
 - df[df>0]
 - df[df['C']>0]
 - df['XX'].where(条件, v) # 'XX'のカラムを、条件に合う**以外**の値がvに変更される
-- df['XX'].mask()       # whereの逆
 - df.where(条件, 正の時の値, 負の時の値) 条件によって値を設定する
+- df['XX'].mask()       # whereの逆
 - df.loc[0:10, ['col1', col2']] # 行と列の範囲を指定して取得
 - df.query() # 複数条件の指定で、特定カラムだけ出力
 	- df.query('カラム名==1')
@@ -346,7 +358,7 @@ forループの中で、**複数のリストの要素を同時に**取得
   - アップサンプリング(間のデータの補完)
   - ダウンサンプリング
 - .map()  Seriesのみ、辞書OK, リストOK
-- .apply() Siries以外もOK, mapダメ、listダメ
+- .apply() Siries以外もOK, mapダメ, listダメの時などに使う
 - .apply(lambda ○:○*2) 
 - .str.extract(正規表現とか) # 抽出（r'(\D+)'） +を付けると固まりを抽出
 - .duplicated() # 重複行を削除
