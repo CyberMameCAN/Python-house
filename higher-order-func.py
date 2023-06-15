@@ -5,6 +5,7 @@
 # - filter()
 # - reduce()
 #
+# 自作関数を引数＋可変長引数
 #
 def higher_order():
     # max
@@ -36,3 +37,19 @@ def higher_order():
     print(list(filter(lambda n: n % 3 == 0, ls)))
 
 higher_order()
+
+# 自作関数
+def func(X, Y, Z):
+    return X+Y, X*Y, Z+Y+X
+
+# 第一勘のやり方
+# def xy(return_func, X, Y, Z):
+#     x, y, z = return_func(X, Y, Z)
+#     print(x, y, z)
+
+# 可変長引数が使えるとなると便利バク上がり
+def xy(return_func, *args):
+    x, y, z = return_func(*args)
+    print(x, y, z)
+
+xy(func, 5, 3, 1)
