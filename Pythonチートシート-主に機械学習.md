@@ -551,6 +551,18 @@ pd.merge(df1, df_rejs, left_on='騎手コード', right_on='コード', how='lef
 total_pre = np.empty((0, 7), int) 
 total_pre = np.vstack([total_pre, [race_index, a, b, c, d, e, f]])
 
+### パターン
+
+#### 等差数列系
+
+	# numpy.arange(start, stop, step)
+	np.arange(1, 10, 3, dtype=float)
+
+	# linspaceはstepの使い方がちょっと違う
+	# step 何個に分けるか
+	np.linspace(1, 10, 6, dtype=int)
+	np.linspace(1, 10, 6, retstep=True)
+
 
 ## 機械学習など
 
