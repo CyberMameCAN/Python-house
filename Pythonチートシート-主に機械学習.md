@@ -75,7 +75,7 @@ URLの結合
 
 	for k in dictional:  # 辞書型の時はkにはキーが入る
 	for k, v in dict.items(): # dictionary型の時使う
-	for x, i in enumerate(x_list): # インデックス付きループ x: value, i: 何番目か
+	for x, i in enumerate(x_list, start=1): # インデックス付きループ x: value, i: 何番目か(start=でカウント開始数を指定)
 	for x, y in zip(x_list, y_list): # 同時に取り出せる
 
 #### enumerateの例
@@ -105,6 +105,10 @@ forループの中で、**複数のリストの要素を同時に**取得
 	my_list = [1,1,2,2,2,3,3,4,5,5,5]
 	set(my_list), type(my_list)
 	# ({1, 2, 3, 4, 5}, list)
+
+前後の改行、空白スペースなどの文字を削除
+
+	'string'.strip()
 
 #### 辞書のソートも出来る
 
