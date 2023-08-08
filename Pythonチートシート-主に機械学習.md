@@ -281,11 +281,11 @@ forループの中で、**複数のリストの要素を同時に**取得
 
 ### マルチスレッド
 
-	threading
+	import threading
 
 ### ログ
 
-	logging
+	import logging
 
 デメリットのみあげると、ログは標準出力エラーへ出力。標準出力と分離。  
 適切なログを残すのが難しい
@@ -330,11 +330,11 @@ forループの中で、**複数のリストの要素を同時に**取得
 	- .value_counts().sort_values() # 値でソート
 	- .value_counts().sort_values(ascending=False) # 降順
 - .dtypes # 型の確認
-	- .dtypes.value_counts()
 - .corr() # 相関係数を算出
 - .rolling() # 移動平均、時系列データでよく用いる
 - .mode() # 最頻値
 - .mean()  # 平均
+- .var()  # 分散
 - .std()  # 標準偏差
 - .cumsum() # 累積和
 - .expanding()
@@ -365,7 +365,8 @@ forループの中で、**複数のリストの要素を同時に**取得
 - .apply() Siries以外もOK, mapダメ, listダメの時などに使う
 - .apply(lambda ○:○*2) 
 - .str.extract(正規表現とか) # 抽出（r'(\D+)'） +を付けると固まりを抽出
-- .duplicated() # 重複行を削除
+- .duplicates() # 重複行を削除
+- .duplicated() # 重複行を抽出
 - .shift() # データをずらす。行方向、列方向、ずらす幅など指定
 - .argmax( , axis=1) # 行単位で一番大きい配列の位置を返す 
 - .replace('置換する文字列', '置換後文字列', inplace=True) 文字列の置換
