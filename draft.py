@@ -36,6 +36,7 @@ def random_value() -> None:
 
 def none_practice():
     a = None
+    # こちらが、よりPythonっぽい
     if not a:
         print('OK') # <<
     else:
@@ -177,6 +178,22 @@ def lambda_call():
     pd.Series(l).map(junk)
 # lambda_call()
 
+def lambda_call2():
+    s = (lambda x, y: x * y)(2, 5)
+    print(s)
+lambda_call2()
+
+def useage_apply():
+    """df.apply()で引数2つの場合"""
+    import pandas as pd
+
+    train = pd.DataFrame(columns=['Age','Sex'])  # データ入ってないから駄目
+    train['Person'] = train[['Age','Sex']].apply(get_person, axis=1)
+
+    def get_person(passenger):
+        age, sex = passenger
+        return 'child' if age < 16 else sex
+
 def set_object():
     data_list = [104, 195, 195, 104, 512, 592, 902, 421]
     set(data_list)  # 重複は取り除かれる
@@ -218,3 +235,4 @@ def int_delimiter():
     print(f'{ans:,}')  # 2,000,000,000,000
     print(f'{ans:_}')  # 2_000_000_000_000
 int_delimiter()
+
