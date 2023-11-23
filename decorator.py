@@ -35,6 +35,34 @@ def simple_sum1(x: int, y: int) -> int:
 def simple_time1(x: int,y: int) -> int:
     return x * y
 
+
+import time
+
+def tictoc(func):
+   def wrapper():
+       t1 = time.time()
+       func()
+       t2 = time.time() - t1
+       print(f'{func.__name__} ran in' f' {t2} seconds')
+       
+   return wrapper
+
+@tictoc
+def do_this():
+    # Simulating runnning code..
+    time.sleep(1.3)
+
+@tictoc
+def do_that():
+    # Simulating runnning code..
+    time.sleep(.4)
+
+
 if __name__ == '__main__':
     simple_sum1(10, 20)
     simple_time1(10, 20)
+    print('Done')
+
+    do_this()
+    do_that()
+    print('Done')
