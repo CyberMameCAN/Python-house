@@ -9,7 +9,7 @@
 #     lock 1つのスレッドを対象
 #     semaphore 複数のスレッドを対象
 #
-# 実行
+# # 実行
 # poetry run python semaphore.py
 # 
 # OUTPUT
@@ -22,10 +22,10 @@
 # var3 sleep後 //
 # var4 sleep後 //
 #
+# # 使い方
 # この変数の値を変更して、どの様に動くか試すと分かりやすかった
 # thread_count = 2
 #
-import logging
 import time
 from threading import Semaphore, Thread
 
