@@ -1,4 +1,7 @@
-''' with構文と使う。__enter__(), __exit__()
+'''
+自作クラスのインスタンスを*with構文*で作成するのは便利だと思う。
+
+with構文と一緒に使う。__enter__(), __exit__()
 一般には
   __enter__ メソッドでリソースを確保するような処理、
   __exit__  メソッドでリソースを解放するような処理を実装
@@ -20,9 +23,11 @@ class Timer:
         return self.end - self.start
 
     def __enter__(self):
+        """ with文が開始された時に呼ばれる """
         self.start = time()
 
     def __exit__(self, exc_type, exc_value, traceback):
+        """ with文が終了した時に呼ばれる (エラー発生時も) """
         print(exc_type, exc_value, traceback)
 
         self.end = time()
